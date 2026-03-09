@@ -20,7 +20,7 @@ export default function HeroSection() {
         className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
         style={{ color: "var(--text-secondary)" }}
       >
-        Strategic operator building AI-powered tools
+        Strategic operator building companies &amp; AI-powered tools
       </p>
       <a
         href="https://www.linkedin.com/in/jeremyreynard"
