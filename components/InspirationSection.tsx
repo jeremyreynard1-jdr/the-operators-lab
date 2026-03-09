@@ -4,10 +4,10 @@ import { inspirationItems, type InspirationItem } from "@/lib/inspiration";
 import { ExternalLink } from "lucide-react";
 
 const typeConfig = {
-  blog: { label: "Blog", bg: "#DBEAFE", color: "#1E40AF" },
-  newsletter: { label: "Newsletter", bg: "#DCFCE7", color: "#166534" },
-  guide: { label: "Guide", bg: "#F3E8FF", color: "#6B21A8" },
-  video: { label: "Video", bg: "#FEF3C7", color: "#92400E" },
+  blog: { label: "Blog" },
+  newsletter: { label: "Newsletter" },
+  guide: { label: "Guide" },
+  video: { label: "Video" },
 };
 
 function InspirationCard({ item }: { item: InspirationItem }) {
@@ -50,7 +50,10 @@ function InspirationCard({ item }: { item: InspirationItem }) {
         <div className="flex items-center gap-2 flex-shrink-0">
           <span
             className="text-[10px] font-medium px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: type.bg, color: type.color }}
+            style={{
+              backgroundColor: "var(--accent-light)",
+              color: "var(--accent)",
+            }}
           >
             {type.label}
           </span>

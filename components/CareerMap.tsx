@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { careerStops } from "@/lib/career";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
@@ -86,21 +87,26 @@ export default function CareerMap() {
           style={{ animation: "fadeSlideIn 0.3s ease-out" }}
         >
           {/* Header: logo + company + period */}
-          <div className="flex items-start gap-4 mb-4">
+          <div className="flex items-start gap-3 md:gap-4 mb-4">
             {/* Company logo */}
             {stop.logoUrl ? (
-              <img
-                src={stop.logoUrl}
-                alt={`${stop.company} logo`}
-                className="flex-shrink-0 w-12 h-12 rounded-xl object-contain"
+              <div
+                className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden relative"
                 style={{
                   backgroundColor: "var(--badge-bg)",
-                  padding: "6px",
                 }}
-              />
+              >
+                <Image
+                  src={stop.logoUrl}
+                  alt={`${stop.company} logo`}
+                  fill
+                  className="object-contain p-1.5"
+                  sizes="48px"
+                />
+              </div>
             ) : (
               <div
-                className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-bold text-sm"
+                className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-bold text-sm"
                 style={{
                   backgroundColor: stop.isCurrent
                     ? "var(--accent)"
@@ -123,7 +129,7 @@ export default function CareerMap() {
                     {stop.company}
                   </h3>
                   <p
-                    className="text-sm font-medium mt-0.5"
+                    className="text-xs md:text-sm font-medium mt-0.5"
                     style={{ color: "var(--accent-muted)" }}
                   >
                     {stop.title}
@@ -132,7 +138,7 @@ export default function CareerMap() {
               </div>
 
               {/* Location + period */}
-              <div className="flex items-center gap-3 mt-2">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
                 <div className="flex items-center gap-1.5">
                   <MapPin
                     size={13}
@@ -160,7 +166,7 @@ export default function CareerMap() {
 
           {/* Description */}
           <p
-            className="text-sm leading-relaxed mb-3 pl-16"
+            className="text-sm leading-relaxed mb-3 pl-[52px] md:pl-16"
             style={{ color: "var(--text-secondary)" }}
           >
             {stop.description}

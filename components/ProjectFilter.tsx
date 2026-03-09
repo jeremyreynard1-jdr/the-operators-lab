@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { projects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
 import PillToggle from "@/components/PillToggle";
@@ -19,9 +19,30 @@ const categoryOptions = [
   { label: "Learning", value: "learning" },
 ];
 
+function getStored(key: string, fallback: string) {
+  if (typeof window === "undefined") return fallback;
+  return sessionStorage.getItem(key) || fallback;
+}
+
 export default function ProjectFilter() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [categoryFilter, setCategoryFilter] = useState("all");
+
+  // Restore filter state from sessionStorage on mount
+  useEffect(() => {
+    setStatusFilter(getStored("filter-status", "all"));
+    setCategoryFilter(getStored("filter-category", "all"));
+  }, []);
+
+  const handleStatusChange = useCallback((v: string) => {
+    setStatusFilter(v);
+    sessionStorage.setItem("filter-status", v);
+  }, []);
+
+  const handleCategoryChange = useCallback((v: string) => {
+    setCategoryFilter(v);
+    sessionStorage.setItem("filter-category", v);
+  }, []);
 
   const filtered = projects.filter((p) => {
     const matchesStatus = statusFilter === "all" || p.status === statusFilter;
@@ -39,7 +60,7 @@ export default function ProjectFilter() {
         <PillToggle
           options={statusOptions}
           selected={statusFilter}
-          onChange={setStatusFilter}
+          onChange={handleStatusChange}
         />
         <div
           className="w-px h-5 hidden sm:block"
@@ -48,7 +69,7 @@ export default function ProjectFilter() {
         <PillToggle
           options={categoryOptions}
           selected={categoryFilter}
-          onChange={setCategoryFilter}
+          onChange={handleCategoryChange}
         />
       </div>
 

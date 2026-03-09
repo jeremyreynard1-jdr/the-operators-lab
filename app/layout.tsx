@@ -15,9 +15,24 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://the-operators-lab.vercel.app"),
   title: "The Operator's Lab - Jeremy Reynard",
   description:
     "Strategic operator building AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
+  openGraph: {
+    title: "The Operator's Lab - Jeremy Reynard",
+    description:
+      "Strategic operator building AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
+    url: "https://the-operators-lab.vercel.app",
+    siteName: "The Operator's Lab",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "The Operator's Lab - Jeremy Reynard",
+    description:
+      "Strategic operator building AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
+  },
 };
 
 export default function RootLayout({

@@ -15,13 +15,14 @@ export default function PillToggle({
   onChange: (value: string) => void;
 }) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2" role="group">
       {options.map((option) => {
         const isActive = selected === option.value;
         return (
           <button
             key={option.value}
             onClick={() => onChange(option.value)}
+            aria-pressed={isActive}
             className="text-sm font-medium px-4 py-1.5 rounded-full transition-all duration-200"
             style={{
               backgroundColor: isActive

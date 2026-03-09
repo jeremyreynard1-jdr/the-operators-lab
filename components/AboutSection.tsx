@@ -1,5 +1,3 @@
-"use client";
-
 import CareerMap from "@/components/CareerMap";
 
 export default function AboutSection() {

@@ -43,7 +43,7 @@ export const projects: Project[] = [
     slug: "competitive-intel",
     title: "Competitive Intel",
     description:
-      "AI-powered company research for strategic research",
+      "AI-powered company research for strategic decision-making",
     longDescription:
       "A research platform that enables strategic company research. Enter a company and get AI-powered competitive intelligence - market positioning, key players, recent news, and strategic insights. Built to help operators walk into any meeting fully prepared.",
     icon: Search,
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     description:
       "AI-powered control center for modern communications teams",
     longDescription:
-      "A control center for comms professionals. Antenna bundles a briefing generator, message pull-through tracker, press clips digest, rapid-response monitor, and internal comms workflow - all powered by Claude. Currently in open beta with 2 tools live.",
+      "A control center for comms professionals. Antenna bundles a briefing generator, message pull-through tracker, press clips digest, rapid-response monitor, and internal comms workflow - all powered by Claude. Briefing generator and press clips digest are live; remaining tools are in active development.",
     icon: Radio,
     status: "in-dev",
     category: "productivity",
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     description:
       "Stay in touch with the people who matter",
     longDescription:
-      "A tool that nudges you to stay in touch with the people who matter. If you're stuck, it uses AI to help you draft thoughtful, personal messages - all in service of reconnecting with your network!",
+      "A tool that nudges you to stay in touch with the people who matter. If you're stuck, it uses AI to help you draft thoughtful, personal messages - all in service of reconnecting with your network.",
     icon: Users,
     status: "live",
     category: "network",

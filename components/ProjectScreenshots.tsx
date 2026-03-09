@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ProjectScreenshots({
@@ -39,12 +40,16 @@ export default function ProjectScreenshots({
           border: "1px solid var(--border-color)",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={screenshots[current]}
-          alt={`${title} screenshot ${current + 1}`}
-          className="w-full"
-        />
+        <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+          <Image
+            src={screenshots[current]}
+            alt={`${title} screenshot ${current + 1}`}
+            fill
+            className="object-contain"
+            sizes="(max-width: 768px) 100vw, 1100px"
+            priority={current === 0}
+          />
+        </div>
 
         {/* Navigation arrows */}
         {screenshots.length > 1 && (
@@ -98,6 +103,7 @@ export default function ProjectScreenshots({
                   i === current ? "var(--accent)" : "var(--border-color)",
               }}
               aria-label={`Go to screenshot ${i + 1}`}
+              aria-current={i === current ? "true" : undefined}
             />
           ))}
         </div>
