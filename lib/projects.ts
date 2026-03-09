@@ -40,6 +40,26 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "competitive-intel",
+    title: "Competitive Intel",
+    description:
+      "AI-powered company research for strategic research",
+    longDescription:
+      "A research platform that enables strategic company research. Enter a company and get AI-powered competitive intelligence - market positioning, key players, recent news, and strategic insights. Built to help operators walk into any meeting fully prepared.",
+    icon: Search,
+    status: "live",
+    category: "productivity",
+    group: "professional",
+    displayMode: "iframe",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Claude API",
+      "Tailwind CSS",
+    ],
+    liveUrl: "https://competitive-intel-one.vercel.app/",
+  },
+  {
     slug: "presence",
     title: "Presence",
     description:
@@ -82,26 +102,6 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     liveUrl: "https://antenna-hub.vercel.app",
-  },
-  {
-    slug: "competitive-intel",
-    title: "Competitive Intel",
-    description:
-      "AI-powered company research for strategic conversations",
-    longDescription:
-      "A research platform that enables strategic business conversations. Enter a company and get AI-powered competitive intelligence - market positioning, key players, recent news, and strategic insights. Built to help operators walk into any meeting fully prepared.",
-    icon: Search,
-    status: "live",
-    category: "productivity",
-    group: "professional",
-    displayMode: "iframe",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "Claude API",
-      "Tailwind CSS",
-    ],
-    liveUrl: "https://competitive-intel-one.vercel.app/",
   },
 
   /* ── Personal Projects ── */

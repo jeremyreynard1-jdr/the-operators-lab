@@ -30,14 +30,14 @@ export default function Home() {
           <ProjectFilter />
         </section>
 
-        {/* Side Projects & Community */}
-        <section id="side-projects" className="mb-20">
-          <SideProjects />
-        </section>
-
         {/* Journey */}
         <section id="journey" className="mb-20">
           <AboutSection />
+        </section>
+
+        {/* Side Projects & Community */}
+        <section id="side-projects" className="mb-20">
+          <SideProjects />
         </section>
 
         {/* Inspiration */}
