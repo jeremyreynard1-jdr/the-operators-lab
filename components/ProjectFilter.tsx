@@ -5,42 +5,104 @@ import { projects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
 import PillToggle from "@/components/PillToggle";
 
-const filterOptions = [
+const statusOptions = [
   { label: "All", value: "all" },
   { label: "Live", value: "live" },
   { label: "In Dev", value: "in-dev" },
   { label: "Ideation", value: "ideation" },
 ];
 
-export default function ProjectFilter() {
-  const [activeFilter, setActiveFilter] = useState("all");
+const categoryOptions = [
+  { label: "All", value: "all" },
+  { label: "Productivity", value: "productivity" },
+  { label: "Network", value: "network" },
+  { label: "Learning", value: "learning" },
+];
 
-  const filtered =
-    activeFilter === "all"
-      ? projects
-      : projects.filter((p) => p.status === activeFilter);
+export default function ProjectFilter() {
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
+
+  const filtered = projects.filter((p) => {
+    const matchesStatus = statusFilter === "all" || p.status === statusFilter;
+    const matchesCategory =
+      categoryFilter === "all" || p.category === categoryFilter;
+    return matchesStatus && matchesCategory;
+  });
+
+  const professional = filtered.filter((p) => p.group === "professional");
+  const personal = filtered.filter((p) => p.group === "personal");
 
   return (
     <div>
-      <div className="mb-6">
+      <div className="flex flex-wrap items-center gap-3 mb-8">
         <PillToggle
-          options={filterOptions}
-          selected={activeFilter}
-          onChange={setActiveFilter}
+          options={statusOptions}
+          selected={statusFilter}
+          onChange={setStatusFilter}
+        />
+        <div
+          className="w-px h-5 hidden sm:block"
+          style={{ backgroundColor: "var(--border-color)" }}
+        />
+        <PillToggle
+          options={categoryOptions}
+          selected={categoryFilter}
+          onChange={setCategoryFilter}
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filtered.map((project) => (
-          <div
-            key={project.slug}
-            className="transition-all duration-300 h-full"
-            style={{ opacity: 1 }}
+      {/* Professional Projects */}
+      {professional.length > 0 && (
+        <div className="mb-10">
+          <h3
+            className="text-xs font-medium uppercase tracking-widest mb-4"
+            style={{
+              color: "var(--text-secondary)",
+              fontFamily: "var(--font-geist-mono)",
+            }}
           >
-            <ProjectCard project={project} />
+            Professional Projects
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {professional.map((project) => (
+              <div
+                key={project.slug}
+                className="transition-all duration-300 h-full"
+                style={{ opacity: 1 }}
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
+
+      {/* Personal Projects */}
+      {personal.length > 0 && (
+        <div>
+          <h3
+            className="text-xs font-medium uppercase tracking-widest mb-4"
+            style={{
+              color: "var(--text-secondary)",
+              fontFamily: "var(--font-geist-mono)",
+            }}
+          >
+            Personal Projects
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {personal.map((project) => (
+              <div
+                key={project.slug}
+                className="transition-all duration-300 h-full"
+                style={{ opacity: 1 }}
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {filtered.length === 0 && (
         <div

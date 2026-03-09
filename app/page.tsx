@@ -1,8 +1,10 @@
 import NavBar from "@/components/NavBar";
 import HeroSection from "@/components/HeroSection";
 import ProjectFilter from "@/components/ProjectFilter";
+import SideProjects from "@/components/SideProjects";
 import AboutSection from "@/components/AboutSection";
 import InspirationSection from "@/components/InspirationSection";
+import AiToolStack from "@/components/AiToolStack";
 
 export default function Home() {
   return (
@@ -14,7 +16,7 @@ export default function Home() {
       >
         <HeroSection />
 
-        {/* Projects */}
+        {/* AI Projects */}
         <section id="projects" className="mb-20">
           <h2
             className="text-xs font-medium uppercase tracking-widest mb-6"
@@ -23,9 +25,14 @@ export default function Home() {
               fontFamily: "var(--font-geist-mono)",
             }}
           >
-            Projects
+            AI Projects
           </h2>
           <ProjectFilter />
+        </section>
+
+        {/* Side Projects & Community */}
+        <section id="side-projects" className="mb-20">
+          <SideProjects />
         </section>
 
         {/* Journey */}
@@ -34,8 +41,13 @@ export default function Home() {
         </section>
 
         {/* Inspiration */}
-        <section id="inspiration" className="mb-16">
+        <section id="inspiration" className="mb-12">
           <InspirationSection />
+        </section>
+
+        {/* AI Tool Stack */}
+        <section className="mb-16">
+          <AiToolStack />
         </section>
 
         {/* Footer */}

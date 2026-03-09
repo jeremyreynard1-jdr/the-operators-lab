@@ -1,8 +1,7 @@
 "use client";
 
 import { inspirationItems, type InspirationItem } from "@/lib/inspiration";
-import { ExternalLink, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 
 const typeConfig = {
   blog: { label: "Blog", bg: "#DBEAFE", color: "#1E40AF" },
@@ -93,38 +92,11 @@ export default function InspirationSection() {
         Articles, talks, and thinkers that shape how I work.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {inspirationItems.map((item) => (
           <InspirationCard key={item.id} item={item} />
         ))}
       </div>
-
-      {/* Change Management Frameworks */}
-      <Link
-        href="/change-management"
-        className="flex items-center justify-between p-4 transition-all duration-200 hover:translate-y-[-1px]"
-        style={{
-          backgroundColor: "var(--surface)",
-          border: "1px solid var(--border-color)",
-          borderRadius: "var(--card-radius)",
-        }}
-      >
-        <div className="flex items-center gap-3">
-          <span
-            className="text-sm font-medium"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Change Management Frameworks
-          </span>
-          <span
-            className="text-xs hidden sm:inline"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Kotter, ADKAR, Lewin, and more
-          </span>
-        </div>
-        <ArrowRight size={14} style={{ color: "var(--text-secondary)" }} />
-      </Link>
     </>
   );
 }

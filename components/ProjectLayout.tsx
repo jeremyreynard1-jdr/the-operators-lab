@@ -4,6 +4,7 @@ import { type Project } from "@/lib/projects";
 import ProjectEmbed from "@/components/ProjectEmbed";
 import ProjectDemo from "@/components/ProjectDemo";
 import ProjectConcept from "@/components/ProjectConcept";
+import ProjectScreenshots from "@/components/ProjectScreenshots";
 
 const statusConfig = {
   live: { label: "Live", color: "var(--status-live)" },
@@ -72,6 +73,16 @@ export default function ProjectLayout({ project }: { project: Project }) {
         <div className="mb-8">
           <ProjectDemo
             assetPath={project.demoAsset || ""}
+            title={project.title}
+          />
+        </div>
+      )}
+
+      {/* Display mode: screenshots */}
+      {project.displayMode === "screenshots" && project.screenshots && (
+        <div className="mb-8">
+          <ProjectScreenshots
+            screenshots={project.screenshots}
             title={project.title}
           />
         </div>

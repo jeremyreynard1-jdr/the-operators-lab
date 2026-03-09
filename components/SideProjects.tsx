@@ -1,8 +1,9 @@
 "use client";
 
-import CareerMap from "@/components/CareerMap";
+import { aboutCards } from "@/lib/about";
+import AboutCard from "@/components/AboutCard";
 
-export default function AboutSection() {
+export default function SideProjects() {
   return (
     <>
       <h2
@@ -12,21 +13,19 @@ export default function AboutSection() {
           fontFamily: "var(--font-geist-mono)",
         }}
       >
-        Journey
+        Side Projects &amp; Community
       </h2>
       <p
         className="text-lg mb-8 max-w-2xl"
         style={{ color: "var(--text-secondary)" }}
       >
-        Over the last 10+ years I&apos;ve been lucky to work at some amazing
-        companies and startups all over the world.
+        Things I build, lead, and participate in outside of work.
       </p>
-
-      {/* Career Map - the centerpiece */}
-      <div className="mb-10">
-        <CareerMap />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {aboutCards.map((card) => (
+          <AboutCard key={card.id} card={card} />
+        ))}
       </div>
-
     </>
   );
 }

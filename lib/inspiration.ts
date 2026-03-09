@@ -29,7 +29,8 @@ export const inspirationItems: InspirationItem[] = [
     author: "Wes Kao",
     url: "https://www.weskao.com/resources",
     type: "blog",
-    description: "", // TODO: Jeremy to provide "why I love this"
+    description:
+      "Co-founder of Maven. Sharp writing on executive communication, managing up, and high-agency operating.",
     icon: typeIcons.blog,
   },
   {
@@ -38,7 +39,8 @@ export const inspirationItems: InspirationItem[] = [
     author: "Molly Graham",
     url: "https://mollyg.substack.com/",
     type: "newsletter",
-    description: "",
+    description:
+      "Veteran operator (Facebook, Quip, CZI). Writes about scaling teams and the messy middle of company-building.",
     icon: typeIcons.newsletter,
   },
   {
@@ -47,7 +49,8 @@ export const inspirationItems: InspirationItem[] = [
     author: "Blueprints",
     url: "https://blueprints.guide/",
     type: "guide",
-    description: "",
+    description:
+      "Actionable frameworks for decision-making, communication, and leadership.",
     icon: typeIcons.guide,
   },
   {
@@ -56,7 +59,8 @@ export const inspirationItems: InspirationItem[] = [
     author: "Jia Jiang",
     url: "https://www.youtube.com/watch?v=-vZXgApsPCQ",
     type: "video",
-    description: "",
+    description:
+      "Viral TED talk on building resilience through 100 days of deliberate rejection.",
     icon: typeIcons.video,
   },
 ];

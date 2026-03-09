@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const sections = [
-  { id: "projects", label: "Projects" },
+  { id: "projects", label: "AI Projects" },
+  { id: "side-projects", label: "Side Projects" },
   { id: "journey", label: "Journey" },
   { id: "inspiration", label: "Inspiration" },
 ];

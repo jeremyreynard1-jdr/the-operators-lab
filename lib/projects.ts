@@ -4,7 +4,7 @@ import {
   Rss,
   Database,
   Radio,
-  Music,
+  Search,
   type LucideIcon,
 } from "lucide-react";
 
@@ -14,9 +14,11 @@ export type ProjectDisplayMode =
   | "iframe"
   | "external-link"
   | "demo-video"
+  | "screenshots"
   | "concept";
 
 export type ProjectCategory = "productivity" | "learning" | "network";
+export type ProjectGroup = "professional" | "personal";
 
 export type Project = {
   slug: string;
@@ -26,72 +28,29 @@ export type Project = {
   icon: LucideIcon;
   status: ProjectStatus;
   category: ProjectCategory;
+  group: ProjectGroup;
   displayMode: ProjectDisplayMode;
   techStack: string[];
   liveUrl?: string;
   demoAsset?: string;
+  screenshots?: string[];
 };
 
+/* ── Professional Projects ── */
+
 export const projects: Project[] = [
-  {
-    slug: "tab-triage",
-    title: "Tab Triage",
-    description:
-      "Intelligently manage and close Chrome tabs with AI assistance",
-    longDescription:
-      "A Chrome extension that helps you regain control of your browser. Tab Triage uses Claude AI to summarize, categorize, and prioritize your open tabs - then lets you batch-close, snooze, or group them with confidence. Features include AI-powered tab summaries, smart grouping by topic, tab snoozing, and customizable category rules.",
-    icon: Layers,
-    status: "live",
-    category: "productivity",
-    displayMode: "demo-video",
-    techStack: ["Chrome Extension", "Manifest V3", "Claude API", "JavaScript"],
-    demoAsset: "/demos/tab-triage-walkthrough.mp4", // TODO: Jeremy to provide video asset
-  },
-  {
-    slug: "sql-101",
-    title: "SQL 101",
-    description: "Interactive SQL learning playground for beginners",
-    longDescription:
-      "An interactive browser-based environment for learning SQL from scratch. SQL 101 lets users write and execute queries against sample datasets, with guided lessons that build from basic SELECT statements to complex joins and aggregations. Designed for communications professionals who want to query their own data without relying on engineering teams.",
-    icon: Database,
-    status: "live",
-    category: "learning",
-    displayMode: "iframe",
-    techStack: ["Next.js", "TypeScript", "SQL.js", "Tailwind CSS"],
-    liveUrl: "https://sql-101-playground.vercel.app/",
-  },
-  {
-    slug: "rekindl",
-    title: "Rekindl",
-    description:
-      "Inspiration to reconnect with your network",
-    longDescription:
-      "A tool that nudges you to stay in touch with the people who matter. Rekindl surfaces connections you haven't reached out to in a while and uses AI to help you draft thoughtful, personal messages - turning good intentions into action.",
-    icon: Users,
-    status: "live",
-    category: "network",
-    displayMode: "iframe",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "Turso SQLite",
-      "Claude API",
-      "Tailwind CSS",
-    ],
-    liveUrl: "https://getrekindl.vercel.app/",
-  },
   {
     slug: "presence",
     title: "Presence",
     description:
-      "Aggregate someone's data to understand who they are and how you relate",
+      "People-intelligence based on LinkedIn profile and activity",
     longDescription:
-      "A people-intelligence tool that pulls together everything you know about a contact - their news, social presence, shared history, and context - so you walk into every conversation prepared. Integrates with Google services and RSS feeds to build rich, AI-enhanced profiles.",
+      "A people-intelligence tool based on LinkedIn profile + activity (comments, posts, reactions). With a few clicks, generates custom intelligence on the person and shows any overlap you have.",
     icon: Rss,
     status: "live",
     category: "network",
-    displayMode: "external-link",
+    group: "professional",
+    displayMode: "iframe",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -109,10 +68,11 @@ export const projects: Project[] = [
     description:
       "AI-powered control center for modern communications teams",
     longDescription:
-      "A control center for comms professionals. Antenna bundles a briefing generator, message pull-through tracker, press clips digest, rapid-response monitor, and internal comms workflow - all powered by Claude. Currently in open beta with five tools live.",
+      "A control center for comms professionals. Antenna bundles a briefing generator, message pull-through tracker, press clips digest, rapid-response monitor, and internal comms workflow - all powered by Claude. Currently in open beta with 2 tools live.",
     icon: Radio,
     status: "in-dev",
     category: "productivity",
+    group: "professional",
     displayMode: "external-link",
     techStack: [
       "Next.js",
@@ -124,17 +84,82 @@ export const projects: Project[] = [
     liveUrl: "https://antenna-hub.vercel.app",
   },
   {
-    slug: "music-discovery",
-    title: "Music Discovery",
+    slug: "competitive-intel",
+    title: "Competitive Intel",
     description:
-      "AI-powered music recommendation engine", // TODO: Jeremy to provide real description
+      "AI-powered company research for strategic conversations",
     longDescription:
-      "Exploring the intersection of AI and music taste - a tool that goes beyond algorithmic playlists to help you discover music that actually resonates.", // TODO: Jeremy to provide real description
-    icon: Music,
-    status: "ideation",
+      "A research platform that enables strategic business conversations. Enter a company and get AI-powered competitive intelligence - market positioning, key players, recent news, and strategic insights. Built to help operators walk into any meeting fully prepared.",
+    icon: Search,
+    status: "live",
+    category: "productivity",
+    group: "professional",
+    displayMode: "iframe",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Claude API",
+      "Tailwind CSS",
+    ],
+    liveUrl: "https://competitive-intel-one.vercel.app/",
+  },
+
+  /* ── Personal Projects ── */
+
+  {
+    slug: "tab-triage",
+    title: "Tab Triage",
+    description:
+      "Intelligently manage and close Chrome tabs with AI assistance",
+    longDescription:
+      "A Chrome extension that helps you regain control of your browser. Tab Triage uses Claude AI to summarize, categorize, and prioritize your open tabs - then lets you batch-close, snooze, or group them with confidence. Features include AI-powered tab summaries, smart grouping by topic, tab snoozing, and customizable category rules.",
+    icon: Layers,
+    status: "live",
+    category: "productivity",
+    group: "personal",
+    displayMode: "screenshots",
+    techStack: ["Chrome Extension", "Manifest V3", "Claude API", "JavaScript"],
+    screenshots: [
+      "/demos/tab-triage-1.png",
+      "/demos/tab-triage-2.png",
+      "/demos/tab-triage-3.png",
+    ],
+  },
+  {
+    slug: "sql-101",
+    title: "SQL 101",
+    description: "Interactive SQL learning playground for beginners",
+    longDescription:
+      "An interactive browser-based environment for learning SQL from scratch. SQL 101 lets users write and execute queries against sample datasets, with guided lessons that build from basic SELECT statements to complex joins and aggregations. Designed for non-technical professionals who want to query their own data without relying on engineering teams.",
+    icon: Database,
+    status: "live",
     category: "learning",
-    displayMode: "concept",
-    techStack: [], // TODO: Jeremy to provide
+    group: "personal",
+    displayMode: "iframe",
+    techStack: ["Next.js", "TypeScript", "SQL.js", "Tailwind CSS"],
+    liveUrl: "https://sql-101-playground.vercel.app/",
+  },
+  {
+    slug: "rekindl",
+    title: "Rekindl",
+    description:
+      "Stay in touch with the people who matter",
+    longDescription:
+      "A tool that nudges you to stay in touch with the people who matter. If you're stuck, it uses AI to help you draft thoughtful, personal messages - all in service of reconnecting with your network!",
+    icon: Users,
+    status: "live",
+    category: "network",
+    group: "personal",
+    displayMode: "iframe",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Turso SQLite",
+      "Claude API",
+      "Tailwind CSS",
+    ],
+    liveUrl: "https://getrekindl.vercel.app/",
   },
 ];
 
