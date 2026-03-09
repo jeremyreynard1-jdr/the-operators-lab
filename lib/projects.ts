@@ -93,7 +93,7 @@ export const projects: Project[] = [
     status: "in-dev",
     category: "productivity",
     group: "professional",
-    displayMode: "external-link",
+    displayMode: "iframe",
     techStack: [
       "Next.js",
       "TypeScript",

@@ -64,7 +64,7 @@ export const careerStops: CareerStop[] = [
     period: "2024 - 2025",
     city: "New York (Remote - Cape Town, Madrid)",
     description:
-      "Partnered with the COO and leadership at a 150+ person crypto startup (a16z, USV-backed). Led BizOps team, served as Interim Head of People (10-person org), and directed the public token launch - distributing ~$1B in value across 300+ stakeholders.",
+      "Partnered with the COO and leadership at a 150+ person web3 startup (Series C, $250m raised, a16z, USV-backed). Led BizOps team, served as Interim Head of People (10-person org), and directed the public token launch - distributing ~$1B in value across 300+ stakeholders.",
   },
   {
     id: "fractional",
