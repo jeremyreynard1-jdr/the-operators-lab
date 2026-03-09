@@ -60,7 +60,7 @@ export const inspirationItems: InspirationItem[] = [
     url: "https://www.youtube.com/watch?v=-vZXgApsPCQ",
     type: "video",
     description:
-      "Viral TED talk on building resilience through 100 days of deliberate rejection.",
+      "Inspiring TED talk on building resilience through 100 days of deliberate rejection.",
     icon: typeIcons.video,
   },
 ];

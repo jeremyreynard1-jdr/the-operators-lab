@@ -37,7 +37,7 @@ export const aboutCards: AboutCard[] = [
     description: "Advanced/fluent Spanish-speaking group in NYC",
     icon: Globe,
     content:
-      "Founded and leads an advanced and fluent Spanish-speaking community in New York City with over 50 members and dozens of meetups over the last 5 years.",
+      "Founded and lead an advanced and fluent Spanish-speaking community in New York City with over 50 members and dozens of meetups over the last 5 years.",
   },
 ];
 
