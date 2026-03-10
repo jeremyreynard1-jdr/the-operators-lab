@@ -21,7 +21,7 @@ export const aboutCards: AboutCard[] = [
     description: "30 days of posting inspired by reframes",
     icon: Megaphone,
     content:
-      "30 days inspired by reframes - one of the most powerful tools as a leader and professional. A daily practice of rethinking how to communicate, lead, and show up.",
+      "Posted on LinkedIn for 30 days straight on reframes throughout my career — one of the most powerful tools as a leader and professional.",
   },
   {
     id: "glue-club",
@@ -29,7 +29,7 @@ export const aboutCards: AboutCard[] = [
     description: "Molly Graham's leadership community for startup operators",
     icon: Users,
     content:
-      "Active member of Glue Club, Molly Graham's leadership development community for experienced startup operators. A space for the people who hold teams and organizations together.",
+      "Active member of Glue Club, Molly Graham's leadership development community for experienced startup operators. A space for people leading teams and organizations and dealing with the beauty of startup chaos.",
   },
   {
     id: "spanish-night",
