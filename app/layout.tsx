@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://the-operators-lab.vercel.app"),
   title: "The Operator's Lab - Jeremy Reynard",
   description:
-    "Strategic operator building companies & AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
+    "Strategic operator scaling companies & building AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
   openGraph: {
     title: "The Operator's Lab - Jeremy Reynard",
     description:
-      "Strategic operator building companies & AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
+      "Strategic operator scaling companies & building AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
     url: "https://the-operators-lab.vercel.app",
     siteName: "The Operator's Lab",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "The Operator's Lab - Jeremy Reynard",
     description:
-      "Strategic operator building companies & AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
+      "Strategic operator scaling companies & building AI-powered tools. Projects, philosophy, and the toolkit behind the work.",
   },
 };
 
