@@ -5,6 +5,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+export type Highlight = {
+  day: number;
+  title: string;
+  reframe: string;
+};
+
 export type AboutCard = {
   id: string;
   title: string;
@@ -12,16 +18,24 @@ export type AboutCard = {
   icon: LucideIcon;
   content: string;
   linkTo?: string;
+  highlights?: Highlight[];
 };
 
 export const aboutCards: AboutCard[] = [
   {
     id: "linkedin-challenge",
     title: "30-Day LinkedIn Challenge",
-    description: "30 days of posting inspired by reframes",
+    description: "30 days of reframes. 130K+ impressions.",
     icon: Megaphone,
     content:
       "Posted on LinkedIn for 30 days straight on reframes throughout my career — one of the most powerful tools as a leader and professional.",
+    highlights: [
+      { day: 1, title: "Posting on LinkedIn is cringe", reframe: "Share with a wider network, authentically" },
+      { day: 2, title: "I'm just not a names person", reframe: "With a little effort, you probably can be" },
+      { day: 9, title: "Feeling scatterbrained", reframe: "Schedule time to worry and think" },
+      { day: 14, title: "I've lost my ambition", reframe: "Found clarity in priorities" },
+      { day: 20, title: "This feels like a huge deal", reframe: "Zoom out — it's relative to the frame" },
+    ],
   },
   {
     id: "glue-club",

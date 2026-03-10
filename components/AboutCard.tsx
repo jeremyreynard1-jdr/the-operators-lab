@@ -107,7 +107,7 @@ export default function AboutCard({ card }: { card: AboutCardType }) {
       <div
         className="overflow-hidden transition-all duration-300"
         style={{
-          maxHeight: expanded ? "200px" : "0",
+          maxHeight: expanded ? "600px" : "0",
           opacity: expanded ? 1 : 0,
         }}
       >
@@ -117,6 +117,37 @@ export default function AboutCard({ card }: { card: AboutCardType }) {
         >
           {card.content}
         </p>
+        {card.highlights && card.highlights.length > 0 && (
+          <div className="mt-4 pl-12 space-y-2">
+            {card.highlights.map((h) => (
+              <div
+                key={h.day}
+                className="flex items-baseline gap-2 text-xs"
+              >
+                <span
+                  className="font-mono font-medium flex-shrink-0"
+                  style={{ color: "var(--accent)", minWidth: "3rem" }}
+                >
+                  Day {h.day}
+                </span>
+                <span style={{ color: "var(--text-secondary)" }}>
+                  &ldquo;{h.title}&rdquo;
+                </span>
+                <span
+                  style={{ color: "var(--text-tertiary, var(--text-secondary))" }}
+                >
+                  &rarr;
+                </span>
+                <span
+                  className="italic"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {h.reframe}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
