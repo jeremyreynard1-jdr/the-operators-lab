@@ -50,7 +50,7 @@ export const inspirationItems: InspirationItem[] = [
     url: "https://blueprints.guide/",
     type: "guide",
     description:
-      "Actionable — and illustrated — frameworks for decision-making, communication, and leadership by former LinkedIn execs.",
+      "Actionable - and illustrated - frameworks for decision-making, communication, and leadership by former LinkedIn execs.",
     icon: typeIcons.guide,
   },
   {
