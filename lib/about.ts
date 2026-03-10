@@ -9,6 +9,7 @@ export type Highlight = {
   day: number;
   title: string;
   reframe: string;
+  image: string;
 };
 
 export type AboutCard = {
@@ -30,11 +31,13 @@ export const aboutCards: AboutCard[] = [
     content:
       "Posted on LinkedIn for 30 days straight on reframes throughout my career — one of the most powerful tools as a leader and professional.",
     highlights: [
-      { day: 1, title: "Posting on LinkedIn is cringe", reframe: "Share with a wider network, authentically" },
-      { day: 2, title: "I'm just not a names person", reframe: "With a little effort, you probably can be" },
-      { day: 9, title: "Feeling scatterbrained", reframe: "Schedule time to worry and think" },
-      { day: 14, title: "I've lost my ambition", reframe: "Found clarity in priorities" },
-      { day: 20, title: "This feels like a huge deal", reframe: "Zoom out — it's relative to the frame" },
+      { day: 1, title: "Posting on LinkedIn is cringe", reframe: "Share with a wider network, authentically", image: "/screenshots/linkedin-challenge/day-01-cringe.png" },
+      { day: 2, title: "I'm just not a names person", reframe: "With a little effort, you probably can be", image: "/screenshots/linkedin-challenge/day-02-names.png" },
+      { day: 5, title: "It's too late", reframe: "The second best time to start is now", image: "/screenshots/linkedin-challenge/day-05-too-late.png" },
+      { day: 7, title: "Sorry I'm late, traffic sucks", reframe: "I could have left earlier", image: "/screenshots/linkedin-challenge/day-07-traffic.png" },
+      { day: 9, title: "Feeling scatterbrained", reframe: "Schedule time to worry and think", image: "/screenshots/linkedin-challenge/day-09-scatterbrained.png" },
+      { day: 14, title: "I've lost my ambition", reframe: "Found clarity in priorities", image: "/screenshots/linkedin-challenge/day-14-ambition.png" },
+      { day: 20, title: "This feels like a huge deal", reframe: "Zoom out — it's relative to the frame", image: "/screenshots/linkedin-challenge/day-20-zoom-out.png" },
     ],
   },
   {
