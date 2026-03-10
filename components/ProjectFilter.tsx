@@ -9,7 +9,6 @@ const statusOptions = [
   { label: "All", value: "all" },
   { label: "Live", value: "live" },
   { label: "In Dev", value: "in-dev" },
-  { label: "Ideation", value: "ideation" },
 ];
 
 const categoryOptions = [

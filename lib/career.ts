@@ -53,7 +53,7 @@ export const careerStops: CareerStop[] = [
     period: "2021 - 2023",
     city: "New York",
     description:
-      "Built out Business Strategy & Analytics team supporting Disney+ during hypergrowth past 130M+ subscribers. Automated executive reporting (reducing time-to-insight for our execs 80% and saving ~30 hrs/wk). Promoted to build out and lead a new team enabling +10% international subscriber growth (70% global subscribers) across EMEA, LATAM, and APAC.",
+      "Built out Business Strategy & Analytics team supporting Disney+ during hypergrowth past 130M+ subscribers. Reduced time-to-insight 80% and saved ~30 hours/week of firedrills by automating executive reporting. Promoted to build out and lead a new team enabling +10% international subscriber growth (representing 70% of global subscribers) across EMEA, LATAM, and APAC.",
   },
   {
     id: "matter-labs",
