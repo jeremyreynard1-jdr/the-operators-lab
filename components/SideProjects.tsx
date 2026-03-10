@@ -19,7 +19,7 @@ export default function SideProjects() {
         className="text-lg mb-8 max-w-2xl"
         style={{ color: "var(--text-secondary)" }}
       >
-        Things I build, lead, and participate in outside of work.
+        Ideas and communities outside of work.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {aboutCards.map((card) => (
