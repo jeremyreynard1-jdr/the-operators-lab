@@ -1,9 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { aboutCards } from "@/lib/about";
 import AboutCard from "@/components/AboutCard";
 
 export default function SideProjects() {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const linkedInExpanded = expandedId === "linkedin-challenge";
+
+  const handleToggle = (cardId: string) => {
+    setExpandedId(expandedId === cardId ? null : cardId);
+  };
+
   return (
     <>
       <h2
@@ -21,9 +29,24 @@ export default function SideProjects() {
       >
         Ideas and communities outside of work.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        {aboutCards.map((card) => (
-          <AboutCard key={card.id} card={card} />
+      <div
+        className={`grid gap-3 ${
+          linkedInExpanded
+            ? "grid-cols-1 md:grid-cols-[3fr_2fr]"
+            : "grid-cols-1 md:grid-cols-3"
+        }`}
+      >
+        {aboutCards.map((card, i) => (
+          <div
+            key={card.id}
+            className={linkedInExpanded && i === 0 ? "md:row-span-2" : ""}
+          >
+            <AboutCard
+              card={card}
+              expanded={expandedId === card.id}
+              onToggle={() => handleToggle(card.id)}
+            />
+          </div>
         ))}
       </div>
     </>

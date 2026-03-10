@@ -170,15 +170,31 @@ function ScreenshotCarousel({ highlights }: { highlights: Highlight[] }) {
   );
 }
 
-export default function AboutCard({ card }: { card: AboutCardType }) {
-  const [expanded, setExpanded] = useState(false);
+interface AboutCardProps {
+  card: AboutCardType;
+  expanded?: boolean;
+  onToggle?: () => void;
+}
+
+export default function AboutCard({
+  card,
+  expanded: controlledExpanded,
+  onToggle,
+}: AboutCardProps) {
+  const [internalExpanded, setInternalExpanded] = useState(false);
+
+  const expanded =
+    controlledExpanded !== undefined ? controlledExpanded : internalExpanded;
+  const toggleExpanded =
+    onToggle || (() => setInternalExpanded(!internalExpanded));
+
   const Icon = card.icon;
 
   if (card.linkTo) {
     return (
       <Link
         href={card.linkTo}
-        className="block p-5 transition-all duration-200 hover:translate-y-[-2px]"
+        className="block h-full p-5 transition-all duration-200 hover:translate-y-[-2px]"
         style={{
           backgroundColor: "var(--surface)",
           border: "1px solid var(--border-color)",
@@ -223,7 +239,7 @@ export default function AboutCard({ card }: { card: AboutCardType }) {
 
   return (
     <div
-      className="p-5 transition-all duration-200"
+      className="h-full p-5 transition-all duration-200"
       style={{
         backgroundColor: "var(--surface)",
         border: "1px solid var(--border-color)",
@@ -234,7 +250,7 @@ export default function AboutCard({ card }: { card: AboutCardType }) {
       }}
     >
       <button
-        onClick={() => setExpanded(!expanded)}
+        onClick={toggleExpanded}
         className="w-full text-left"
       >
         <div className="flex items-start justify-between">
@@ -271,20 +287,22 @@ export default function AboutCard({ card }: { card: AboutCardType }) {
         </div>
       </button>
 
+      {/* Expandable content using grid for smooth height animation */}
       <div
-        className="overflow-hidden transition-all duration-300"
+        className="grid transition-[grid-template-rows] duration-300 ease-in-out"
         style={{
-          maxHeight: expanded ? "400px" : "0",
-          opacity: expanded ? 1 : 0,
+          gridTemplateRows: expanded ? "1fr" : "0fr",
         }}
       >
-        <p
-          className="text-sm leading-relaxed mt-4 pl-12"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          {card.content}
-        </p>
-        {hasHighlights && <ScreenshotCarousel highlights={card.highlights!} />}
+        <div className="overflow-hidden">
+          <p
+            className="text-sm leading-relaxed mt-4 pl-12"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            {card.content}
+          </p>
+          {hasHighlights && <ScreenshotCarousel highlights={card.highlights!} />}
+        </div>
       </div>
     </div>
   );
