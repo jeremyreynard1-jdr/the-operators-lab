@@ -46,8 +46,7 @@ export const aboutCards: AboutCard[] = [
     description: "Molly Graham's leadership community for startup operators",
     icon: Users,
     content:
-      "Active member of Glue Club, Molly Graham's leadership development community for experienced startup operators. A space for people leading teams and organizations and dealing with the beauty of startup chaos.",
-    linkTo: "https://www.glueclub.com",
+      'Active member of <a href="https://www.glueclub.com" target="_blank" rel="noopener noreferrer">Glue Club</a>, Molly Graham\'s leadership development community for experienced startup operators. A space for people leading teams and organizations and dealing with the beauty of startup chaos.',
   },
   {
     id: "spanish-night",

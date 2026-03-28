@@ -317,11 +317,10 @@ export default function AboutCard({
       >
         <div className="overflow-hidden">
           <p
-            className="text-sm leading-relaxed mt-4 pl-12"
+            className="text-sm leading-relaxed mt-4 pl-12 [&_a]:text-[var(--accent)] [&_a]:underline [&_a]:hover:opacity-80"
             style={{ color: "var(--text-secondary)" }}
-          >
-            {card.content}
-          </p>
+            dangerouslySetInnerHTML={{ __html: card.content || "" }}
+          />
           {hasHighlights && <ScreenshotCarousel highlights={card.highlights!} />}
         </div>
       </div>
