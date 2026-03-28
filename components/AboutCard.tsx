@@ -191,46 +191,67 @@ export default function AboutCard({
   const Icon = card.icon;
 
   if (card.linkTo) {
+    const isExternal = card.linkTo.startsWith("http");
+    const cardContent = (
+      <div className="flex items-start justify-between">
+        <div className="flex items-start gap-3">
+          <div
+            className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
+            style={{ backgroundColor: "var(--accent-light)" }}
+          >
+            <Icon size={16} style={{ color: "var(--accent)" }} />
+          </div>
+          <div>
+            <h3
+              className="text-sm font-semibold mb-1"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {card.title}
+            </h3>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {card.description}
+            </p>
+          </div>
+        </div>
+        <ArrowRight
+          size={16}
+          className="flex-shrink-0 mt-1"
+          style={{ color: "var(--text-secondary)" }}
+        />
+      </div>
+    );
+
+    const cardStyle = {
+      backgroundColor: "var(--surface)",
+      border: "1px solid var(--border-color)",
+      borderRadius: "var(--card-radius)",
+      boxShadow: "var(--card-shadow)",
+    };
+
+    if (isExternal) {
+      return (
+        <a
+          href={card.linkTo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block h-full p-5 transition-all duration-200 hover:translate-y-[-2px]"
+          style={cardStyle}
+        >
+          {cardContent}
+        </a>
+      );
+    }
+
     return (
       <Link
         href={card.linkTo}
         className="block h-full p-5 transition-all duration-200 hover:translate-y-[-2px]"
-        style={{
-          backgroundColor: "var(--surface)",
-          border: "1px solid var(--border-color)",
-          borderRadius: "var(--card-radius)",
-          boxShadow: "var(--card-shadow)",
-        }}
+        style={cardStyle}
       >
-        <div className="flex items-start justify-between">
-          <div className="flex items-start gap-3">
-            <div
-              className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
-              style={{ backgroundColor: "var(--accent-light)" }}
-            >
-              <Icon size={16} style={{ color: "var(--accent)" }} />
-            </div>
-            <div>
-              <h3
-                className="text-sm font-semibold mb-1"
-                style={{ color: "var(--text-primary)" }}
-              >
-                {card.title}
-              </h3>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                {card.description}
-              </p>
-            </div>
-          </div>
-          <ArrowRight
-            size={16}
-            className="flex-shrink-0 mt-1"
-            style={{ color: "var(--text-secondary)" }}
-          />
-        </div>
+        {cardContent}
       </Link>
     );
   }

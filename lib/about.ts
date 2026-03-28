@@ -47,6 +47,7 @@ export const aboutCards: AboutCard[] = [
     icon: Users,
     content:
       "Active member of Glue Club, Molly Graham's leadership development community for experienced startup operators. A space for people leading teams and organizations and dealing with the beauty of startup chaos.",
+    linkTo: "https://www.glueclub.com",
   },
   {
     id: "spanish-night",
@@ -67,6 +68,7 @@ export const aiToolStack: AiTool[] = [
   { name: "Granola", role: "Meeting notes" },
   { name: "Wispr Flow", role: "Voice dictation" },
   { name: "Claude Code", role: "Code & writing" },
+  { name: "Claude Cowork", role: "Automation" },
+  { name: "Claude", role: "General assistant" },
   { name: "Gemini", role: "Research & analysis" },
-  { name: "ChatGPT", role: "General assistant" },
 ];

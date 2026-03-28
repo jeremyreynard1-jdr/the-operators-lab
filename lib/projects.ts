@@ -89,7 +89,7 @@ export const projects: Project[] = [
     slug: "antenna",
     title: "Antenna",
     description:
-      "AI-powered control center for modern communications teams",
+      "AI-powered control center with 5 built-in tools for modern communications teams",
     longDescription:
       "A control center for comms professionals. Antenna bundles a briefing generator, message pull-through tracker, press clips digest, rapid-response monitor, and internal comms workflow - all powered by Claude. Briefing generator and press clips digest are live; remaining tools are in active development.",
     icon: Radio,
