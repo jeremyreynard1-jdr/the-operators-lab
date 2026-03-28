@@ -26,53 +26,43 @@ export default function CareerMap() {
     >
       {/* Timeline strip */}
       <div
-        className="flex items-center px-4 md:px-6 py-4 gap-1 overflow-x-auto"
+        className="px-4 md:px-6 pt-4 pb-3 overflow-x-auto"
         style={{ borderBottom: "1px solid var(--border-color)" }}
       >
+        {/* Pills row with connectors */}
+        <div className="flex items-center gap-1">
         {careerStops.map((s, i) => {
           const isActive = i === activeIndex;
           const isPast = i < activeIndex;
 
           return (
             <div key={s.id} className="flex items-center flex-shrink-0">
-              <div className="flex flex-col items-center gap-1">
-                <button
-                  onClick={() => setActiveIndex(i)}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-200"
-                  style={{
-                    backgroundColor: isActive
+              <button
+                onClick={() => setActiveIndex(i)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-200"
+                style={{
+                  backgroundColor: isActive
+                    ? "var(--accent)"
+                    : isPast
+                      ? "var(--accent-light)"
+                      : "transparent",
+                  color: isActive
+                    ? "#FFFFFF"
+                    : isPast
                       ? "var(--accent)"
-                      : isPast
-                        ? "var(--accent-light)"
-                        : "transparent",
-                    color: isActive
-                      ? "#FFFFFF"
-                      : isPast
-                        ? "var(--accent)"
-                        : "var(--text-secondary)",
-                    border: isActive
-                      ? "1px solid var(--accent)"
-                      : "1px solid transparent",
-                  }}
-                >
-                  <span
-                    className="text-xs font-semibold whitespace-nowrap"
-                    style={{ fontFamily: "var(--font-geist-mono)" }}
-                  >
-                    {s.company}
-                  </span>
-                </button>
+                      : "var(--text-secondary)",
+                  border: isActive
+                    ? "1px solid var(--accent)"
+                    : "1px solid transparent",
+                }}
+              >
                 <span
-                  className="text-[10px] whitespace-nowrap"
-                  style={{
-                    fontFamily: "var(--font-geist-mono)",
-                    color: isActive ? "var(--accent)" : "var(--text-secondary)",
-                    opacity: isActive ? 1 : 0.5,
-                  }}
+                  className="text-xs font-semibold whitespace-nowrap"
+                  style={{ fontFamily: "var(--font-geist-mono)" }}
                 >
-                  {s.startYear}
+                  {s.company}
                 </span>
-              </div>
+              </button>
 
               {/* Connector */}
               {i < careerStops.length - 1 && (
@@ -90,6 +80,32 @@ export default function CareerMap() {
             </div>
           );
         })}
+        </div>
+
+        {/* Years row */}
+        <div className="flex items-center gap-1 mt-1.5">
+          {careerStops.map((s, i) => {
+            const isActive = i === activeIndex;
+            return (
+              <div key={`year-${s.id}`} className="flex items-center flex-shrink-0">
+                <span
+                  className="text-[10px] whitespace-nowrap text-center px-3"
+                  style={{
+                    fontFamily: "var(--font-geist-mono)",
+                    color: isActive ? "var(--accent)" : "var(--text-secondary)",
+                    opacity: isActive ? 1 : 0.5,
+                    minWidth: "fit-content",
+                  }}
+                >
+                  {s.startYear}
+                </span>
+                {i < careerStops.length - 1 && (
+                  <div className="w-4 mx-0.5 flex-shrink-0" />
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Active stop content */}
