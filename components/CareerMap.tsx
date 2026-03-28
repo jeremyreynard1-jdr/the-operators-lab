@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { careerStops } from "@/lib/career";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
@@ -8,6 +8,18 @@ import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 export default function CareerMap() {
   const [activeIndex, setActiveIndex] = useState(0);
   const stop = careerStops[activeIndex];
+  const pillRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const scrollActivePillIntoView = useCallback((index: number) => {
+    const el = pillRefs.current[index];
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
+  }, []);
+
+  useEffect(() => {
+    scrollActivePillIntoView(activeIndex);
+  }, [activeIndex, scrollActivePillIntoView]);
 
   const prev = () =>
     setActiveIndex((i) => (i > 0 ? i - 1 : careerStops.length - 1));
@@ -35,7 +47,7 @@ export default function CareerMap() {
 
           return (
             <div key={s.id} className="flex items-center flex-shrink-0">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center" ref={(el) => { pillRefs.current[i] = el; }}>
                 <button
                   onClick={() => setActiveIndex(i)}
                   className="flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-200"
