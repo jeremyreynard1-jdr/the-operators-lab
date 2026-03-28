@@ -35,38 +35,44 @@ export default function CareerMap() {
 
           return (
             <div key={s.id} className="flex items-center flex-shrink-0">
-              <button
-                onClick={() => setActiveIndex(i)}
-                className="flex flex-col items-center gap-1 px-3 py-1.5 rounded-full transition-all duration-200"
-                style={{
-                  backgroundColor: isActive
-                    ? "var(--accent)"
-                    : isPast
-                      ? "var(--accent-light)"
-                      : "transparent",
-                  color: isActive
-                    ? "#FFFFFF"
-                    : isPast
+              <div className="flex flex-col items-center gap-1">
+                <button
+                  onClick={() => setActiveIndex(i)}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-200"
+                  style={{
+                    backgroundColor: isActive
                       ? "var(--accent)"
-                      : "var(--text-secondary)",
-                  border: isActive
-                    ? "1px solid var(--accent)"
-                    : "1px solid transparent",
-                }}
-              >
-                <span
-                  className="text-xs font-semibold whitespace-nowrap"
-                  style={{ fontFamily: "var(--font-geist-mono)" }}
+                      : isPast
+                        ? "var(--accent-light)"
+                        : "transparent",
+                    color: isActive
+                      ? "#FFFFFF"
+                      : isPast
+                        ? "var(--accent)"
+                        : "var(--text-secondary)",
+                    border: isActive
+                      ? "1px solid var(--accent)"
+                      : "1px solid transparent",
+                  }}
                 >
-                  {s.company}
-                </span>
+                  <span
+                    className="text-xs font-semibold whitespace-nowrap"
+                    style={{ fontFamily: "var(--font-geist-mono)" }}
+                  >
+                    {s.company}
+                  </span>
+                </button>
                 <span
-                  className="text-[10px] whitespace-nowrap opacity-70"
-                  style={{ fontFamily: "var(--font-geist-mono)" }}
+                  className="text-[10px] whitespace-nowrap"
+                  style={{
+                    fontFamily: "var(--font-geist-mono)",
+                    color: isActive ? "var(--accent)" : "var(--text-secondary)",
+                    opacity: isActive ? 1 : 0.5,
+                  }}
                 >
                   {s.startYear}
                 </span>
-              </button>
+              </div>
 
               {/* Connector */}
               {i < careerStops.length - 1 && (
