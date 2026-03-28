@@ -53,6 +53,14 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Icon size={20} style={{ color: "var(--accent)" }} />
         </div>
         <div className="flex items-center gap-2">
+          {project.githubUrl && (
+            <span
+              className="inline-flex items-center justify-center w-6 h-6 rounded-full opacity-40"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              <Github size={13} />
+            </span>
+          )}
           <span
             className="text-xs px-2 py-0.5 rounded-full"
             style={{
@@ -89,21 +97,6 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="inline ml-1.5 opacity-40"
             style={{ verticalAlign: "middle" }}
           />
-        )}
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="inline ml-1.5 opacity-40 hover:opacity-80 transition-opacity"
-          >
-            <Github
-              size={12}
-              className="inline"
-              style={{ verticalAlign: "middle" }}
-            />
-          </a>
         )}
       </h3>
 
