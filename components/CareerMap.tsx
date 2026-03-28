@@ -37,7 +37,7 @@ export default function CareerMap() {
             <div key={s.id} className="flex items-center flex-shrink-0">
               <button
                 onClick={() => setActiveIndex(i)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-200"
+                className="flex flex-col items-center gap-1 px-3 py-1.5 rounded-full transition-all duration-200"
                 style={{
                   backgroundColor: isActive
                     ? "var(--accent)"
@@ -59,6 +59,12 @@ export default function CareerMap() {
                   style={{ fontFamily: "var(--font-geist-mono)" }}
                 >
                   {s.company}
+                </span>
+                <span
+                  className="text-[10px] whitespace-nowrap opacity-70"
+                  style={{ fontFamily: "var(--font-geist-mono)" }}
+                >
+                  {s.startYear}
                 </span>
               </button>
 

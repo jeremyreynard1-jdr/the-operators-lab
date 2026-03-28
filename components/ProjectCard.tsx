@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { type Project } from "@/lib/projects";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 const categoryConfig = {
   productivity: { label: "Productivity" },
@@ -89,6 +89,21 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="inline ml-1.5 opacity-40"
             style={{ verticalAlign: "middle" }}
           />
+        )}
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline ml-1.5 opacity-40 hover:opacity-80 transition-opacity"
+          >
+            <Github
+              size={12}
+              className="inline"
+              style={{ verticalAlign: "middle" }}
+            />
+          </a>
         )}
       </h3>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { type Project } from "@/lib/projects";
 import ProjectEmbed from "@/components/ProjectEmbed";
 import ProjectDemo from "@/components/ProjectDemo";
@@ -52,13 +52,28 @@ export default function ProjectLayout({ project }: { project: Project }) {
         {project.description}
       </p>
 
-      <div className="flex flex-wrap items-center gap-2 mb-8">
+      <div className="flex flex-wrap items-center gap-3 mb-8">
         <span
           className="text-xs font-medium"
           style={{ color: status.color }}
         >
           {status.label}
         </span>
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full transition-opacity hover:opacity-80"
+            style={{
+              backgroundColor: "var(--badge-bg)",
+              color: "var(--text-secondary)",
+            }}
+          >
+            <Github size={12} />
+            View Source
+          </a>
+        )}
       </div>
 
       {/* Display mode: iframe embed */}

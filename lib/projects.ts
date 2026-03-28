@@ -32,6 +32,7 @@ export type Project = {
   displayMode: ProjectDisplayMode;
   techStack: string[];
   liveUrl?: string;
+  githubUrl?: string;
   demoAsset?: string;
   screenshots?: string[];
 };
@@ -58,6 +59,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     liveUrl: "https://competitive-intel-one.vercel.app/",
+    githubUrl: "https://github.com/jeremyreynard1-jdr/competitive-intel",
   },
   {
     slug: "presence",
@@ -81,6 +83,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     liveUrl: "https://profpresence.vercel.app/",
+    githubUrl: "https://github.com/jeremyreynard1-jdr/linkedin-analyzer",
   },
   {
     slug: "antenna",
@@ -102,6 +105,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     liveUrl: "https://antenna-hub.vercel.app",
+    githubUrl: "https://github.com/jeremyreynard1-jdr/antenna",
   },
 
   /* ── Personal Projects ── */
@@ -119,6 +123,7 @@ export const projects: Project[] = [
     group: "personal",
     displayMode: "screenshots",
     techStack: ["Chrome Extension", "Manifest V3", "Claude API", "JavaScript"],
+    githubUrl: "https://github.com/jeremyreynard1-jdr/tab-manager",
     screenshots: [
       "/demos/tab-triage-1.png",
       "/demos/tab-triage-2.png",
@@ -138,6 +143,7 @@ export const projects: Project[] = [
     displayMode: "iframe",
     techStack: ["Next.js", "TypeScript", "SQL.js", "Tailwind CSS"],
     liveUrl: "https://sql-101-playground.vercel.app/",
+    githubUrl: "https://github.com/jeremyreynard1-jdr/sql-playground",
   },
   {
     slug: "rekindl",
@@ -160,6 +166,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     liveUrl: "https://getrekindl.vercel.app/",
+    githubUrl: "https://github.com/jeremyreynard1-jdr/rekindl",
   },
 ];
 
