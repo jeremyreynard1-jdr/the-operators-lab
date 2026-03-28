@@ -68,7 +68,7 @@ export const aiToolStack: AiTool[] = [
   { name: "Granola", role: "Meeting notes" },
   { name: "Wispr Flow", role: "Voice dictation" },
   { name: "Claude Code", role: "Code & writing" },
-  { name: "Claude Cowork", role: "Automation" },
+  { name: "Claude Cowork", role: "Workflow automation" },
   { name: "Claude", role: "General assistant" },
   { name: "Gemini", role: "Research & analysis" },
 ];
