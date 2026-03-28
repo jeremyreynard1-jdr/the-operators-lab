@@ -123,7 +123,7 @@ export const projects: Project[] = [
     group: "personal",
     displayMode: "screenshots",
     techStack: ["Chrome Extension", "Manifest V3", "Claude API", "JavaScript"],
-    githubUrl: "https://github.com/jeremyreynard1-jdr/tab-manager",
+    githubUrl: "https://github.com/jeremyreynard1-jdr/tab-triage",
     screenshots: [
       "/demos/tab-triage-1.png",
       "/demos/tab-triage-2.png",
